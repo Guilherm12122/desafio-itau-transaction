@@ -5,6 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/")
 public class TransactionController {
@@ -33,7 +35,13 @@ public class TransactionController {
     @GetMapping("/estatistica")
     public ResponseEntity<StatisticsTransaction> getStatistics(){
 
-        StatisticsTransaction st = new StatisticsTransaction(box_transaction.getLastTransactions());
+        System.out.println(new StatisticsTransaction().getAvg());
+
+        List<Transaction> last_transactions = box_transaction.getLastTransactions();
+
+        StatisticsTransaction st = last_transactions.isEmpty()
+                ? new StatisticsTransaction()
+                : new StatisticsTransaction(last_transactions);
 
         return ResponseEntity.ok(st);
 

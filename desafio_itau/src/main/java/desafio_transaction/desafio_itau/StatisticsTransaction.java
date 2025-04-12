@@ -7,11 +7,15 @@ import java.util.Optional;
 public class StatisticsTransaction {
 
     private List<Transaction> transactions = new ArrayList<>();
-    private Integer count;
-    private Double sum;
-    private Double avg;
-    private Double min;
-    private Double max;
+    private Integer count = 0;
+    private Double sum = 0.00;
+    private Double avg = 0.00;
+    private Double min = 0.00;
+    private Double max = 0.00;
+
+    public StatisticsTransaction(){
+        System.out.println(getAvg());
+    }
 
     public StatisticsTransaction(List<Transaction> transactions){
         this.transactions = transactions;
@@ -32,19 +36,20 @@ public class StatisticsTransaction {
     }
 
     public Double getAvg(){
-        return getSum() / getCount();
+        double avg_tmp = getSum() / getCount();
+        return Double.isNaN(avg_tmp) ? 0.0 : avg_tmp;
     }
 
     public Double getMin() {
         return this.transactions.stream()
                 .map(Transaction::getValor)
-                .min(Double::compareTo).orElse(null);
+                .min(Double::compareTo).orElse(0.00);
     }
 
     public Double getMax() {
         return this.transactions.stream()
                 .map(Transaction::getValor)
-                .max(Double::compareTo).orElse(null);
+                .max(Double::compareTo).orElse(0.00);
     }
 
 }
