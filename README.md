@@ -123,7 +123,7 @@ A aplicação estará disponível em:
 
 ---
 
-## 🧩 Extras Implementados (caso tenha feito)
+## 🧩 Extras Implementados
 
 - ✅ Cobertura de testes com JUnit
 
@@ -133,7 +133,7 @@ A aplicação estará disponível em:
 
 Caso queira entrar em contato para feedbacks ou dúvidas:
 
-- ✉️ seu.email@exemplo.com
+- ✉️ guilherme.oliver12@gmail.com
 - 💼 [LinkedIn](https://www.linkedin.com/in/guilherme-ribeiro-1a5705235/)
 - 🐙 [GitHub](https://github.com/Guilherm12122)
 
