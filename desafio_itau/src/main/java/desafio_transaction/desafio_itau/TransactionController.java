@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping("/")
 public class TransactionController {
 
-    private BoxTransaction box_transaction = new BoxTransaction();
+    private final BoxTransaction box_transaction = new BoxTransaction();
 
     @PostMapping("/transacao")
     public ResponseEntity<Void> buildTransaction (
@@ -35,8 +35,6 @@ public class TransactionController {
     @GetMapping("/estatistica")
     public ResponseEntity<StatisticsTransaction> getStatistics(){
 
-        System.out.println(new StatisticsTransaction().getAvg());
-
         List<Transaction> last_transactions = box_transaction.getLastTransactions();
 
         StatisticsTransaction st = last_transactions.isEmpty()
@@ -45,6 +43,14 @@ public class TransactionController {
 
         return ResponseEntity.ok(st);
 
+    }
+
+    @DeleteMapping("/transacao")
+    public ResponseEntity<Void> excludeTransactions(){
+
+        box_transaction.deleteTransactions();
+
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
 
 }

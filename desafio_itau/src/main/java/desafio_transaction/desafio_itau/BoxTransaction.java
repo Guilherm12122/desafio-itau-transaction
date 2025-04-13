@@ -26,4 +26,8 @@ public class BoxTransaction {
                          t.getDataHora()).toInstant()).getTime()) / 1000 <= 60
                 ).toList();
     }
+
+    public void deleteTransactions(){
+        this.transactions.clear();
+    }
 }

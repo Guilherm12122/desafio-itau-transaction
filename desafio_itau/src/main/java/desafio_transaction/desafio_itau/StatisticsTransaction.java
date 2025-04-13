@@ -13,9 +13,7 @@ public class StatisticsTransaction {
     private Double min = 0.00;
     private Double max = 0.00;
 
-    public StatisticsTransaction(){
-        System.out.println(getAvg());
-    }
+    public StatisticsTransaction(){}
 
     public StatisticsTransaction(List<Transaction> transactions){
         this.transactions = transactions;
